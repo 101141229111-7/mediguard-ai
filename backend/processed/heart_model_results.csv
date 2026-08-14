@@ -1,0 +1,4 @@
+Model,Accuracy,Precision,Recall,F1,AUC
+KNN (baseline),0.836,0.75,0.964,0.844,0.912
+Decision Tree (baseline),0.787,0.778,0.75,0.764,0.777
+Hybrid Stacking Ensemble,0.852,0.806,0.893,0.847,0.918
