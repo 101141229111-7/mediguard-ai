@@ -24,7 +24,7 @@ import pandas as pd
 # ----------------------------------------------------------------------
 # CONFIG
 # ----------------------------------------------------------------------
-API_BASE = "http://127.0.0.1:8000"
+API_BASE = "https://mediguard-ai-sqas.onrender.com"
 
 st.set_page_config(page_title="MediGuard-AI", page_icon="🩺", layout="wide")
 
