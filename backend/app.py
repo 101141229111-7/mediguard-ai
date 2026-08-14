@@ -23,6 +23,7 @@ import joblib
 import numpy as np
 import shap
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from explainability import positive_class_shap
@@ -39,6 +40,18 @@ ALERT_THRESHOLD = 0.6
 # uvicorn still finds a valid "app" object and shows you the REAL
 # underlying exception instead of a confusing "Attribute app not found".
 app = FastAPI(title="MediGuard AI API")
+
+# Allow requests from any origin (needed once the frontend is deployed on
+# a different domain, e.g. Streamlit Community Cloud, and needs to call
+# this backend, e.g. hosted on Render). Safe for a student/demo project;
+# for a real production system you'd restrict allow_origins to your
+# actual frontend domain instead of "*".
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 # ---------------------------------------------------------------
